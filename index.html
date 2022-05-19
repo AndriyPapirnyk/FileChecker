@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File checker</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .wrap{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: monospace;
+        }
+        .row1{
+            width: 100%;
+            height: 40vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+text-align: center;
+        }
+        .row2{
+            width: 100%;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            justify-content: space-around;
+            background-color: #555;
+            border-top: 4px solid black;
+        }
+        .main_txt{
+            font-size: 100px;
+            font-family: monospace;
+            
+        }
+        .checker{
+            width: 500px;
+            height: 400px;
+            border: 4px solid black;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            justify-content: space-around;
+            flex-direction: column;
+            transition: 0.5s;
+            text-align: center;
+
+
+        }
+        .checker:hover{
+            box-shadow: 0 3px 6px  black;
+            transition: 0.5s;
+        }
+        .button{
+            width: 400px;
+            height: 100px;
+            background-color: black;
+            border-radius: 20px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            font-family: monospace;
+            border: 2px solid white;
+            transition: 0.5s;
+        }
+        .button:hover{
+            box-shadow: 0 3px 6px  black;
+            transition: 0.5s;
+        }
+        .sp{
+            font-size: 40px;
+            color: white;
+        }
+        .click_img{
+            width: 120px;
+            height: 120px;
+        }
+        .input_file{
+            width: 500px;
+            height: 400px;
+            border: 2px solid black;
+            position: absolute;
+            opacity: 0;
+
+        }
+        .page{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            justify-content: space-around;
+            font-size: 50px;
+            color: white;
+            font-family: monospace;
+            text-align: center;
+
+        }
+        .page_html{
+            background-color: lightgreen;
+            display: none;
+        }
+        .img_page{
+            width: 200px;
+            height: 200px;
+
+        }
+        .page_js{
+            background-color: lightsalmon;
+            display: none;
+        }
+        .page_zip{
+            background-color: lightseagreen;
+            display: none;
+        }
+        .page_jpg{
+            background-color: aqua;
+            display: none;
+        }
+        .page_jpeg{
+            background-color: yellowgreen;
+            display: none;
+        }
+        .page_png{
+            background-color: blueviolet;
+            display: none;
+        }
+        .page_unc{
+            background-color: red;
+            display: none;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="wrap" id="wrap">
+        <div class="row1">
+            <h2 class="main_txt">What kind of <br> file is this?</h2>
+        </div>
+        <div class="row2">
+            <div class="checker" id="checker" >
+                <span id="sp" class="sp">Click here to choose files</span>
+                <img class="click_img" src="click.png" id="click_img" alt="">
+                <input type="file" id="input_file" class="input_file">
+            </div>
+            <div class="button" id="button">Check it!</div>
+        </div>
+    </div>
+    <div class="page page_html" id="page_html">
+        <h2 class="h2_page">Your file is: <br> Web-page</h2>
+        <img class="img_page" src="html.png" alt="">
+        <h2 class="h2_page">File extension: HTML</h2>
+    </div>
+
+    <div class="page page_js" id="page_js">
+        <h2 class="h2_page">Your file is: <br> JS-file</h2>
+        <img class="img_page" src="js.png" alt="">
+        <h2 class="h2_page">File extension: JS</h2>
+    </div>
+    <div class="page page_zip" id="page_zip">
+        <h2 class="h2_page">Your file is: <br> ZIP-archive</h2>
+        <img class="img_page" src="zip.png" alt="">
+        <h2 class="h2_page">File extension: ZIP</h2>
+    </div>
+
+    <div class="page page_jpg" id="page_jpg">
+        <h2 class="h2_page">Your file is: <br> Image</h2>
+        <img class="img_page" src="jpg.png" alt="">
+        <h2 class="h2_page">File extension: JPG</h2>
+    </div>
+
+    <div class="page page_jpeg" id="page_jpeg">
+        <h2 class="h2_page">Your file is: <br> Image</h2>
+        <img class="img_page" src="jpeg.png" alt="">
+        <h2 class="h2_page">File extension: JPEG</h2>
+    </div>
+
+    <div class="page page_png" id="page_png">
+        <h2 class="h2_page">Your file is: <br> Image</h2>
+        <img class="img_page" src="png.png" alt="">
+        <h2 class="h2_page">File extension: PNG</h2>
+    </div>
+
+    <div class="page page_unc" id="page_unc">
+        <h2 class="h2_page">Your file is: <br> I'm don't know:(</h2>
+        <img class="img_page" src="cancel.png" alt="">
+        <h2 class="h2_page">File extension: unknown</h2>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
